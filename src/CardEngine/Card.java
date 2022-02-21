@@ -6,10 +6,17 @@ public class Card {
     // TODO: it should be private, and generated not on demand.
     // for now, Will be generated on demand
     
-    enum CardType { Club /*ةيريش*/, Diamond, Heart, Spade }
+    public enum CardType { Club /*ةيريش*/, Diamond, Heart, Spade }
 
     CardType Type;
 
-    public Card(CardType T) { Type = T; }
+    byte Value;  // set card priority.
+
+    private Card(CardType T, byte V) {
+        Type = T;
+        Value = V;
+    }
+
+
 }
 
