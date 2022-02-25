@@ -8,7 +8,7 @@ public class Card implements Comparable<Card> {
     
     public enum CardType { Club /*ةيريش*/, Diamond, Heart, Spade }
 
-    public enum CardName { Seven, Eight, Nine, Ten, Jack, Queen, King }
+    public enum CardName { Seven, Eight, Nine, Ten, Jack, Queen, King, Ace }
     CardType Type;
 
     CardName Name;
@@ -28,5 +28,13 @@ public class Card implements Comparable<Card> {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "Card{" +
+                "Type=" + Type +
+                ", Name=" + Name +
+                ", Value=" + Value +
+                '}';
+    }
 }
 

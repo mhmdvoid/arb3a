@@ -1,23 +1,6 @@
 package CardEngine;
-class ArrayOf32<T extends Comparable> {
 
-   // data structure
-   private T[] ValuesOf_32;
-
-   private int Ptr;
-   public static final int SIZE = 32;
-   public ArrayOf32() {
-
-      ValuesOf_32 = (T[]) new Comparable[32];
-   }  
-
-
-   public boolean Append(T Val) {
-       if (Ptr > 32) { return false; }
-       ValuesOf_32[Ptr++] = Val;
-       return true;
-   }
-}
+import com.sun.jdi.Value;
 
 
 // This should represent the cardSet;
@@ -38,6 +21,7 @@ abstract class Suit implements Comparable<Suit> {
             case 5 -> {  return Card.CardName.Jack;}
             case 6 -> {  return Card.CardName.Queen ;}  
             case 7 -> { return Card.CardName.King ;}
+            case 8 -> { return Card.CardName.Ace ;}
             default -> { return null; }
         }
     }
@@ -130,7 +114,7 @@ public class CardSet {
         return instance;
     }
 
-    public void Fill() {
+    private void Fill() {
         // Fill is the important part here;
         var ClubObj = new Club();
         var Heart = new Heart();
@@ -151,4 +135,5 @@ public class CardSet {
 //
 //    }
 //
+    public ArrayOf32<Card> GetCards() { return Cards; }
 }
