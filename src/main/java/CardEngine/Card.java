@@ -8,11 +8,14 @@ public class Card implements Comparable<Card> {
     
     public enum CardType { Club /*ةيريش*/, Diamond, Heart, Spade }
 
+    public enum CardName { Seven, Eight, Nine, Ten, Jack, Queen, King }
     CardType Type;
 
+    CardName Name;
     public int Value;  // set card priority.
 
-    protected Card(CardType T, int V) {
+    protected Card(CardName N, CardType T, int V) {
+        Name = N;
         Type = T;
         Value = V;
     }
