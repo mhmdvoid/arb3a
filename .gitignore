@@ -30,7 +30,7 @@ buildNumber.properties
 ## IntelliJ
 ##############################
 out/
-.idea/
+.idea
 .idea_modules/
 *.iml
 *.ipr
