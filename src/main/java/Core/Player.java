@@ -7,13 +7,19 @@ public class Player {
     String Name; 
     Card[] CardSet;
 
+
     private static final int SET_SIZE = 8;
     Player TeamMember; // FIXME: self refernce.
 
-    private Player(String N) {
+    public Player(String N) {
         Name = N;
         CardSet = new Card[SET_SIZE];
         // CardGenerator.Kick(this.CardSet, /*Initial*/ true);
         // if player buys a round CardSet.length == 8, else == 5
+    }
+
+    public boolean Play() {
+        // imagine this is a button to play.
+        return true;
     }
 }

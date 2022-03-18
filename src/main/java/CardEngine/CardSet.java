@@ -1,8 +1,5 @@
 package CardEngine;
 
-import com.sun.jdi.Value;
-
-
 // This should represent the cardSet;
 abstract class Suit implements Comparable<Suit> {
 
