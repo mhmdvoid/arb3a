@@ -1,5 +1,7 @@
 package Core;
 
+import jdk.jfr.TransitionTo;
+
 // This room will allow players to join, Imagine(GUI App) have an internet connection.
 public class Room {
 
@@ -7,6 +9,7 @@ public class Room {
 
     Player[] Players;
     private int Size;
+    public static final int MAX_SIZE = 4;
     String RoomName;
     long RoomId;
     String RoomCode; // TODO. for Player-created rooms
@@ -15,6 +18,7 @@ public class Room {
 
 
     public Room(String RN) {
+        Players = new Player[MAX_SIZE];
         RoomName = RN;
         RoomId = Gen++;
     }
@@ -25,7 +29,7 @@ public class Room {
     // then update the list or what?
     // then notify? if no found getOrCreate there
     public boolean Join(Player A_Player) {
-        if (IsFull()) {
+        if (IsFull()) { // TODO: can this be true when ::Lookup called.
             // If full go and create a new one; and find other requesting as well ! it's like a request problem that needs thinking?
             // Call the dealer pick up mechanism as well as start keep track of them counter-clockwise as well as keep track of other things
             // Game start when room has 4 players.
@@ -41,15 +45,25 @@ public class Room {
 
     // Should be called when RoomPool is looked up.
     // If true, create a room. Else, Get
-    public boolean IsFull() { return Size == 4; }
+    public boolean IsFull() { return Size == MAX_SIZE; }
 
     public boolean IsEmpty() { return Size == 0; }
 
     public void Dump() {
         for (var P: Players) {
-            System.out.println("[Dump] room's players: " + P.Name);
+            System.out.println("[Dump] room's players: " + P);
         }
     }
 
+    // Getters
+    public int GetSize() {
+        return Size;
+    }
 
+
+    // ToString
+    @Override
+    public String toString() {
+        return "[" + this.GetSize() + "] " + "Players";
+    }
 }

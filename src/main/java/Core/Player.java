@@ -18,8 +18,10 @@ public class Player {
         // if player buys a round CardSet.length == 8, else == 5
     }
 
-    public boolean Play() {
-        // imagine this is a button to play.
-        return true;
+    @Override
+    public String toString() {
+        return "Player{" +
+                "Name='" + Name + '\'' +
+                '}';
     }
 }

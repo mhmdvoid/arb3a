@@ -3,6 +3,7 @@ package Core;
 // TODO: Lack of docs
 public class RoomPool {
 
+    private static RoomPool __pool__;
     FreeList<Room> Rooms;
 
     private RoomPool() {
@@ -24,5 +25,19 @@ public class RoomPool {
         return R;
     }
 
-    // Can we infere detailed data out of it? Maybe, and not;
+    public static RoomPool Shared() {
+        if (__pool__ == null) {
+            __pool__ = new RoomPool();
+        }
+        return __pool__;
+    }
+
+    public void Dump(){
+        // Dump the rooms pool; w/ format as needed
+        Rooms.ForEach(Room -> {
+            System.out.println(Room.toString());
+        });
+
+
+    }
 }

@@ -1,6 +1,7 @@
 package Game;
 
 import Core.Player;
+import Core.RoomPool;
 
 import java.util.Scanner;
 
@@ -10,23 +11,16 @@ public class Driver {
 
         System.out.println("... Hello to Arb3a ...");
 
-        System.out.println("Please sign in to play");
-        var KeyboardIn = new Scanner(System.in);
-        var PlayerName = KeyboardIn.nextLine();
-        var Player = new Player(PlayerName);
-
-//        System.out.println("Please Press Play to start off");
-
-        Player.Play();
-
-
-        // Test out;
-//        var it = CardSet.Own().GetCards().iterator();
-//
-//        while (it.HasNext()) {
-//            var TheCard = it.Next();
-//            System.out.println(TheCard);
-//        }
+        System.out.println("Assume we have 6 players ");
+        var i = 0;
+        while (i++ < 6) {
+            System.out.println("Please sign in to play");
+            var KeyboardIn = new Scanner(System.in);
+            var PlayerName = KeyboardIn.nextLine();
+            var Player = new Player(PlayerName);
+            Game.Play(Player);
+        }
+        RoomPool.Shared().Dump();// Memory-leaks?
 
     }
 }
