@@ -6,7 +6,8 @@ public class Player {
 
     String Name; 
     Card[] CardSet;
-
+    public boolean IsDealer;
+    public char Identifier; // unique id;
 
     private static final int SET_SIZE = 8;
     Player TeamMember; // FIXME: self refernce.

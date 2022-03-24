@@ -1,18 +1,18 @@
 package Core;
 
-import jdk.jfr.TransitionTo;
-
 // This room will allow players to join, Imagine(GUI App) have an internet connection.
 public class Room {
 
     // Now i am kinda keeping track of where i am right?
 
-    Player[] Players;
+    public final Player[] Players;
     private int Size;
     public static final int MAX_SIZE = 4;
     String RoomName;
     long RoomId;
     String RoomCode; // TODO. for Player-created rooms
+    boolean Expired;
+    boolean Finished;
     private static long Gen;
 
 
@@ -66,4 +66,22 @@ public class Room {
     public String toString() {
         return "[" + this.GetSize() + "] " + "Players";
     }
+}
+
+class GameResult {
+//    everyRoom has a GameResult(Like a decider);
+    Room TheRoom;
+    int score; // If this is >= 152, room.finished==true.
+    public GameResult(Room theRoom) {
+        TheRoom = theRoom;
+    }
+
+    public boolean ShouldEndGame() {
+        if (score >= 152) {
+            TheRoom.Finished = true;
+            return true;
+        }
+        return false;
+    }
+
 }
