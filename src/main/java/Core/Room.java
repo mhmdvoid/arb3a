@@ -6,6 +6,7 @@ public class Room {
     // Now i am kinda keeping track of where i am right?
 
     public final Player[] Players;
+    public final RoomManager MyManager = new RoomManager(); // FIXME
     private int Size;
     public static final int MAX_SIZE = 4;
     String RoomName;
@@ -37,7 +38,7 @@ public class Room {
         }
 
         Players[Size++] = A_Player;
-
+        MyManager.Assign(A_Player);
         return true;
     }
 

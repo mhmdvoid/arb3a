@@ -23,6 +23,7 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "Name='" + Name + '\'' +
+                "ID_INSIDE_ROOM=" + Identifier + '\'' +
                 '}';
     }
 }
