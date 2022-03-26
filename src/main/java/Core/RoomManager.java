@@ -1,7 +1,7 @@
 package Core;
 
 public class RoomManager {
-    private static final char[] UNIQUE_ID = {'A', 'B', 'C', 'D'};
+    private static final char[] UNIQUE_ID = {'D', 'B', 'A', 'C'};
     private int Cursor = 0;
 
     // FIXME: This should be static and use list data structure

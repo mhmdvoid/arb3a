@@ -4,8 +4,9 @@ import CardEngine.Card;
 
 public class Player {
 
-    String Name; 
-    Card[] CardSet;
+    // Every player has Right to كوشة
+    String Name;
+    Card[] CardSet; // CardSet is an object holds 8 cards no need to do things like Card[] !
     public boolean IsDealer;
     public char Identifier; // unique id;
 
