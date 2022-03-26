@@ -11,6 +11,8 @@ public final class Game {
     // Should have 3-4 enums vales.
     // etc...
 
+    static boolean IsOffline = false;
+
     private Game() {
     }
 
@@ -24,4 +26,9 @@ public final class Game {
         return Val;
     }
 
+    public static boolean PlayOffline() {
+        IsOffline = true;
+        return true;
+    }
 }
+

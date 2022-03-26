@@ -4,9 +4,11 @@ import CardEngine.Card;
 
 public class Player {
 
-    String Name; 
-    Card[] CardSet;
-
+    // Every player has Right to كوشة
+    String Name;
+    Card[] CardSet; // CardSet is an object holds 8 cards no need to do things like Card[] !
+    public boolean IsDealer;
+    public char Identifier; // unique id;
 
     private static final int SET_SIZE = 8;
     Player TeamMember; // FIXME: self refernce.
@@ -22,6 +24,7 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "Name='" + Name + '\'' +
+                "ID_INSIDE_ROOM=" + Identifier + '\'' +
                 '}';
     }
 }
