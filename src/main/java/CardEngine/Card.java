@@ -6,17 +6,22 @@ public class Card implements Comparable<Card> {
     // TODO: it should be private, and generated not on demand.
     // for now, Will be generated on demand
     
-    public enum CardType { Club /*ةيريش*/, Diamond, Heart, Spade }
+    public enum CardColor { Club /*ةيريش*/, Diamond, Heart, Spade }
 
     public enum CardName { Seven, Eight, Nine, Ten, Jack, Queen, King, Ace }
-    CardType Type;
+    public CardColor Color;
 
-    CardName Name;
+    public CardName Name;
     public int Value;  // set card priority.
 
-    protected Card(CardName N, CardType T, int V) {
+    public Card(CardName N) {
         Name = N;
-        Type = T;
+
+    }
+
+    protected Card(CardName N, CardColor C, int V) {
+        Name = N;
+        Color = C;
         Value = V;
     }
 
@@ -31,7 +36,7 @@ public class Card implements Comparable<Card> {
     @Override
     public String toString() {
         return "Card{" +
-                "Type=" + Type +
+                "Type=" + Color +
                 ", Name=" + Name +
                 ", Value=" + Value +
                 '}';

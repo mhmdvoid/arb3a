@@ -9,6 +9,7 @@ public class Driver {
     public static void main(String[] args) {
 
 
+        //  Heavy refactor should go here as well !.
         System.out.println("... Hello to Arb3a ...");
 
         System.out.println("Assume we have 6 players ");
@@ -18,7 +19,7 @@ public class Driver {
             var KeyboardIn = new Scanner(System.in);
             var PlayerName = KeyboardIn.nextLine();
             var Player = new Player(PlayerName);
-            Game.Play(Player);
+            Game.Play();
         }
         RoomPool.Shared().Dump();// Memory-leaks?
 

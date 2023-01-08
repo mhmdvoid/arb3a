@@ -13,7 +13,7 @@ public class Table {
         return true;
     }
 
-    public static Card.CardType CurrentGame() {
+    public static Card.CardColor CurrentGame() {
         // if controlPlayer plays Diamond, this should return CurrentGame == Diamond.
         return null;
     }
