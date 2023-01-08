@@ -4,8 +4,7 @@ package Core.DealingSys;
 import Core.Player;
 import Core.Room;
 
-// Keep track of players table and their turn && dealers;
-// We'll see if this will be a static service provider 'API'
+// Keep track of players table and their turn && dealers.
 public class DealingController {
     Room CurRoom;
     Player Dealer; // FIXME

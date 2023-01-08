@@ -1,136 +1,79 @@
 package CardEngine;
 
-// This should represent the cardSet;
-abstract class Suit implements Comparable<Suit> {
+import Core.Project;
 
-    protected Suit() {
-    }
-
-    public abstract void ExecSet(ArrayOf32<Card> Cards);
-
-    public Card.CardName Parse_CardName(int WithVal) {
-
-        switch (WithVal) {
-            case 1 -> { return Card.CardName.Seven; }
-            case 2 -> {  return Card.CardName.Eight ;}
-            case 3 -> {  return Card.CardName.Nine;}
-            case 4 -> {  return Card.CardName.Ten;}
-            case 5 -> {  return Card.CardName.Jack;}
-            case 6 -> {  return Card.CardName.Queen ;}  
-            case 7 -> { return Card.CardName.King ;}
-            case 8 -> { return Card.CardName.Ace ;}
-            default -> { return null; }
-        }
-    }
-}
-
-class Club extends Suit {
-
-
-    @Override
-    public void ExecSet(ArrayOf32<Card> Cards) {
-        // TODO: Wierd implementation !
-        var i = 0;
-        while (i++ < 8) { Cards.Append(new Card(Parse_CardName(i), Card.CardType.Club, i)); }
-
-    }
-
-    @Override
-    public int compareTo(Suit o) {
-        assert o instanceof Club;
-        var ClubOther = (Club) o;
-        return 0;
-    }
-}
-class Diamond extends Suit {
-
-    @Override
-    public void ExecSet(ArrayOf32<Card> Cards) {
-        var i = 0;
-        while (i++ < 8) { Cards.Append(new Card(Parse_CardName(i),Card.CardType.Diamond, i)); }
-
-
-    }
-
-    @Override
-    public int compareTo(Suit o) {
-        return 0;
-    }
-}
-class Heart extends Suit {
-
-    @Override
-    public void ExecSet(ArrayOf32<Card> Cards) {
-        var i = 0;
-        while (i++ < 8) { Cards.Append(new Card(Parse_CardName(i),Card.CardType.Heart, i)); }
-    }
-
-    @Override
-    public int compareTo(Suit o) {
-        return 0;
-    }
-}
-class Spade extends Suit {
-
-    @Override
-    public void ExecSet(ArrayOf32<Card> Cards) {
-        var i = 0;
-        while (i++ < 8) { Cards.Append(new Card(Parse_CardName(i),Card.CardType.Spade, i)); }
-    }
-
-    @Override
-    public int compareTo(Suit o) {
-        return 0;
-    }
-}
+import java.util.List;
 
 
 
-// A single card set.
 public class CardSet {
-//
-//    // this is the static set !;
-//    // infere the info
-//    // from card data structure;
-//    // card generator;
-//    // will infere this info and
-//    // generate on denmand;
-//    // on demand will be the round
-//    //
-//
-    private final ArrayOf32<Card> Cards = new ArrayOf32<>();
-    private static CardSet instance;
+
+    ArrayOf8<Card> Cards = new ArrayOf8<>();    // Each player will have a cardset(Randomly generated);
+
+    List<Project> PossibleProjects;
+
+    // We feed in ProjectValidator/MexDetector with these possible
+
+    // We could inject card generator in here.
 
 
-    private CardSet() {
-        Fill();
+    public Project issueProject(Project.ProjectType type) {
+
+        // TODO: Allow user to announce a project.
+        return null;
+
     }
 
-    public static CardSet Own() {
-        if (instance == null) { instance = new CardSet(); }
-        return instance;
+    public boolean InsertInto(Card C) {
+        return Cards.Append(C);
     }
-
-    private void Fill() {
-        // Fill is the important part here;
-        var ClubObj = new Club();
-        var Heart = new Heart();
-        var Dia = new Diamond();
-        var Spa = new Spade();
-
-        ClubObj.ExecSet(this.Cards);
-        Heart.ExecSet(this.Cards);
-        Dia.ExecSet(this.Cards);
-        Spa.ExecSet(this.Cards);
-    }
-//
-//    private CardSet() {};
-//    public final void FillSet() {
-//
-//        // TODO: Use a visitor CardSet;
-//
-//
-//    }
-//
-    public ArrayOf32<Card> GetCards() { return Cards; }
 }
+
+// // A single card set.
+// public class CardSet {
+// //
+// //    // this is the static set !;
+// //    // infere the info
+// //    // from card data structure;
+// //    // card generator;
+// //    // will infere this info and
+// //    // generate on denmand;
+// //    // on demand will be the round
+// //    //
+// //
+//     private final ArrayOf32<Card> Cards = new ArrayOf32<>();
+//     private static CardSet instance;
+
+
+//     private CardSet() {
+//         Fill();
+//     }
+
+//     public static CardSet Own() {
+//         if (instance == null) { instance = new CardSet(); }
+//         return instance;
+//     }
+
+//     private void Fill() {
+//         // Fill is the important part here;
+//         var ClubObj = new Club();
+//         var Heart = new Heart();
+//         var Dia = new Diamond();
+//         var Spa = new Spade();
+
+//         ClubObj.ExecSet(this.Cards);
+//         Heart.ExecSet(this.Cards);
+//         Dia.ExecSet(this.Cards);
+//         Spa.ExecSet(this.Cards);
+//     }
+// //
+// //    private CardSet() {};
+// //    public final void FillSet() {
+// //
+// //        // TODO: Use a visitor CardSet;
+// //
+// //
+// //    }
+// //
+//     public ArrayOf32<Card> GetCards() { return Cards; }
+// }

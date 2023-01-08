@@ -1,8 +1,5 @@
 package Core;
 
-// TODO
-interface FnIter<T> { void Consume(T Element); }
-
 
 // This should be a stack
 public class FreeList<Struct> {
